@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Module01Exercise01"
+             x:Class="Module01Exercise01.MainPage"
+             BackgroundColor="{DynamicResource LocalBackgroundColor}">
+
+    <ContentPage.Resources>
+
+        <x:String x:Key="StaticUsername">Derick Pangilinan</x:String>
+
+        <Color x:Key="LocalBackgroundColor">Cyan</Color>
+        
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout 
+        Padding="30,0"
+        Spacing="25">
+        
+        <Label Text="User Profile" FontSize="24" HorizontalOptions="CenterAndExpand" />
+
+        <Label x:Name="StaticResourceLabel"
+               Text="{StaticResource StaticUsername}"/>
+        
+        <!-- Name -->
+        <Entry x:Name="Name" 
+               Placeholder="Name"/>
+
+        <!-- Email -->
+        <Entry Placeholder="Email" Keyboard="Email" />
+
+        <!-- Date of Birth -->
+        <DatePicker Date="{Binding BirthDate}" />
+
+        <!-- Bio -->
+        <Editor Placeholder="Bio" HeightRequest="100" />
+
+        <!-- Save Button -->
+        <Button Text="Save" 
+                Clicked="SaveButton_Clicked" 
+                BackgroundColor="Blue"/>
+
+        <!-- Confirmation Message -->
+        <Label Text="{Binding ConfirmationMessage}"
+               TextColor="{DynamicResource ConfirmationTextColor}" />
+
+        <!-- Change Color Buttons -->
+        <Button Text="Change Background Color Lime"
+        Clicked="OnChangeBackgroundColorL"
+        BackgroundColor="Blue"/>
+
+        <Button Text="Change Background Color Gold"
+        Clicked="OnChangeBackgroundColorG"
+        BackgroundColor="Blue"/>
+
+        <Button Text="Change Background Color Red"
+        Clicked="OnChangeBackgroundColorR"
+        BackgroundColor="Blue"/>
+
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
